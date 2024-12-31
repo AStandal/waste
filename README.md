@@ -13,3 +13,4 @@
 ## Todo
 * Resize favicon to reduce bandwidth
 * Bundle the html, stylesheets and scripts.
+* Make autoreloading work from development = true flag.
