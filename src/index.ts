@@ -6,7 +6,7 @@ const server = Bun.serve({
 
         // Serve favicon
         if (url.pathname === '/favicon.ico') {
-            return new Response(Bun.file('./src/public/Piggy.jpg'), {
+            return new Response(Bun.file('./public/Piggy.jpg'), {
                 headers: {
                     'Content-Type': 'image/jpeg',
                 },
@@ -15,7 +15,7 @@ const server = Bun.serve({
 
         // Serve CSS file
         if (url.pathname === '/styles.css') {
-            return new Response(Bun.file('./src/styles.css'), {
+            return new Response(Bun.file('./styles.css'), {
                 headers: {
                     'Content-Type': 'text/css',
                 },
@@ -25,8 +25,8 @@ const server = Bun.serve({
         // Serve JavaScript file (explicitly transpiled from TypeScript)
         if (url.pathname === '/app.js') {
             const transpiled = await Bun.build({
-                entrypoints: ['./src/app.ts'],
-                outdir: './src/dist',
+                entrypoints: ['./app.ts'],
+                outdir: './dist',
             });
             
             return new Response(transpiled.outputs[0], {
@@ -37,7 +37,7 @@ const server = Bun.serve({
         }
 
         // Serve HTML file
-        return new Response(Bun.file('./src/index.html'), {
+        return new Response(Bun.file('./index.html'), {
             headers: {
                 'Content-Type': 'text/html',
             },
