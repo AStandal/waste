@@ -24,12 +24,12 @@ const server = Bun.serve({
 
         // Serve JavaScript file (explicitly transpiled from TypeScript)
         if (url.pathname === '/app.js') {
-            const result = await Bun.build({
+            const transpiled = await Bun.build({
                 entrypoints: ['./src/app.ts'],
-                outdir: './dist',
+                outdir: './src/dist',
             });
             
-            return new Response(result.outputs[0], {
+            return new Response(transpiled.outputs[0], {
                 headers: {
                     'Content-Type': 'application/javascript',
                 },
