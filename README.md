@@ -8,3 +8,8 @@
     2. Nye initiativ, kommisjoner, etc. - Inngår disse alltid i budsjette til et gitt departement?
 4. Reguleringsoversikt. Hva er entiteten? Lover? Linjer med lov? Per departement? Per år?
 5. Gjeldsoversikt - relevant?
+
+
+## Todo
+* Resize favicon to reduce bandwidth
+* Bundle the html, stylesheets and scripts.

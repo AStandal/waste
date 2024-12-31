@@ -1,6 +1,6 @@
 const server = Bun.serve({
     port: 3000,
-    fetch(req) {
+    async fetch(req) {
         const url = new URL(req.url);
         console.log(`Received request for: ${url.pathname}`);
 
@@ -18,6 +18,20 @@ const server = Bun.serve({
             return new Response(Bun.file('./src/styles.css'), {
                 headers: {
                     'Content-Type': 'text/css',
+                },
+            });
+        }
+
+        // Serve JavaScript file (explicitly transpiled from TypeScript)
+        if (url.pathname === '/app.js') {
+            const result = await Bun.build({
+                entrypoints: ['./src/app.ts'],
+                outdir: './dist',
+            });
+            
+            return new Response(result.outputs[0], {
+                headers: {
+                    'Content-Type': 'application/javascript',
                 },
             });
         }
