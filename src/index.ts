@@ -4,6 +4,15 @@ const server = Bun.serve({
         const url = new URL(req.url);
         console.log(`Received request for: ${url.pathname}`);
 
+        // Serve favicon
+        if (url.pathname === '/favicon.ico') {
+            return new Response(Bun.file('./src/public/Piggy.jpg'), {
+                headers: {
+                    'Content-Type': 'image/jpeg',
+                },
+            });
+        }
+
         // Serve CSS file
         if (url.pathname === '/styles.css') {
             return new Response(Bun.file('./src/styles.css'), {
