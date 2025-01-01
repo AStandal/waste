@@ -1,6 +1,20 @@
 const server = Bun.serve({
     port: 3000,
     development: true,
+    async error(error) {
+        console.error(`Error: ${error.message}`);
+        
+        let errorTemplate = await Bun.file('./error.html').text();
+        errorTemplate = errorTemplate
+            .replace('{{ERROR_MESSAGE}}', error.message);
+
+        return new Response(errorTemplate, {
+            headers: {
+                'Content-Type': 'text/html',
+            },
+            status: 500,
+        });
+    },
     async fetch(req) {
         const url = new URL(req.url);
         console.log(`Received request for: ${url.pathname}`);
