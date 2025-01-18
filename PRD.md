@@ -18,6 +18,7 @@ To expose and communicate wasteful spending in government due to regulation and 
 8. Biggest pain-points for each department, directorate, and municipalities.
 9. AI-summaries of new public documents. Propositions, budgets, actuals, department news, new laws, heering documents (! especially important to prevent bad regulations before they happen).
 10. Make political and organizational leaders accountable to their organisations propositions, actions, budgets, and results.
+11. Budgets and costs are tracked relatively open, but what about results? Needs functionality to view results related to spending, such as humanitarian aid, climate related aid etc.
 
 ## Questions
 * Automatic vs manual editorial process. Who decides what to highlight?
