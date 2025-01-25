@@ -6,7 +6,9 @@
     "start": "bun --inspect ./index.ts"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/cheerio": "^0.22.35",
+    "cheerio": "^1.0.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
