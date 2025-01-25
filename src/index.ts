@@ -1,3 +1,5 @@
+import { scrapePropositions } from './scraper';
+
 const server = Bun.serve({
     port: 3000,
     development: true,
@@ -18,6 +20,25 @@ const server = Bun.serve({
     async fetch(req) {
         const url = new URL(req.url);
         console.log(`Received request for: ${url.pathname}`);
+
+        // Add new route for scraping
+        if (url.pathname === '/scrape') {
+            try {
+                const propositions = await scrapePropositions();
+                return new Response(JSON.stringify(propositions, null, 2), {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+            } catch (error) {
+                return new Response(JSON.stringify({ error: 'Failed to scrape data' }), {
+                    status: 500,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+            }
+        }
 
         // Serve favicon
         if (url.pathname === '/favicon.ico') {

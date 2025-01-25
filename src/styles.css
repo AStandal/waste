@@ -39,4 +39,44 @@ button {
 
 button:hover {
     background-color: #2980b9;
+}
+
+.propositions-list {
+    margin-top: 20px;
+}
+
+.proposition {
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+
+.proposition h3 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+}
+
+.prop-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.prop-meta span {
+    margin-right: 15px;
+}
+
+.proposition p {
+    margin: 10px 0;
+}
+
+.proposition a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.proposition a:hover {
+    text-decoration: underline;
 } 
