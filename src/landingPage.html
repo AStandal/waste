@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sløseri</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/jpeg" href="./public/Piggy.jpg">
+    <script type="module">
+        import { handleClick } from '/app.js';
+        window.handleClick = handleClick;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Landing page</h1>
+        <p>Statsregnskapet 2023 | Utgifter: 1.776 milliarder</p>
+        <button onclick="handleClick()">Klikk meg</button>
+    </div>
+</body>
+</html>

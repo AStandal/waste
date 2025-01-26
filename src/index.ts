@@ -1,8 +1,12 @@
 import { scrapePropositions } from './scraper';
+import landingPage from './landingPage.html';
 
 const server = Bun.serve({
     port: 3000,
     development: true,
+    static: {
+        "/landing": landingPage,
+    },
     async error(error) {
         console.error(`Error: ${error.message}`);
         
