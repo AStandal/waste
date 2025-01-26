@@ -1,5 +1,6 @@
 import { scrapePropositions } from './scraper';
 import landingPage from './landingPage.html';
+import { classify } from './llmRequest';
 
 const server = Bun.serve({
     port: 3000,
@@ -29,6 +30,8 @@ const server = Bun.serve({
         if (url.pathname === '/scrape') {
             try {
                 const propositions = await scrapePropositions();
+                classify(propositions[0]);
+                
                 return new Response(JSON.stringify(propositions, null, 2), {
                     headers: {
                         'Content-Type': 'application/json',

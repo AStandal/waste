@@ -1,7 +1,7 @@
 import { load } from 'cheerio';
 import { mkdir } from 'node:fs/promises';
 
-interface Proposition {
+export interface Proposition {
     title: string;
     date: string;
     department: string;
@@ -36,6 +36,8 @@ export async function scrapePropositions(): Promise<Proposition[]> {
                 });
             }
         });
+
+        await Bun.write("./scraped/propositions.json", JSON.stringify(propositions, null, 2));
 
         return propositions;
     } catch (error) {
